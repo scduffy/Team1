@@ -44,7 +44,7 @@ java -cp "src/" StartMenu
 * attack() ->
   - *enter test info here*
 
-## Map Class Functions <img src="https://i.imgur.com/Sn6cAs7.png" width="45"/>
+## Map Class Functions <img src="https://i.imgur.com/IN1YUkR.png" width="45"/>
 
 * move(String name, Location loc, Type type) ->
   - *enter test info here*
