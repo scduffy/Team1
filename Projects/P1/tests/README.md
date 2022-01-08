@@ -22,7 +22,7 @@ java -cp "src/" StartMenu
 >>>>a description of the test you wrote
 >>>>The descriptions don't have to be long - a sentence or two would suffice.
 
-## PacMan Class Functions
+## PacMan Class Functions   <img src="https://i.imgur.com/pYDel6A.png" width="20" />
 
 * get_valid_moves() -> This method checks the 4 directions/locations around PacMan and if they are inbounds and not of Type.WALL it is a valid move and added to the returned list. 
   - This test places two PacMan on the frame. It then calls the get_valid_moves function and compares its elements to the expected values based on the respective PacMan's locations. 
@@ -33,7 +33,7 @@ java -cp "src/" StartMenu
 * consume() ->
   - *enter test info here*
 
-## Ghost Class Functions
+## Ghost Class Functions  <img src="https://i.imgur.com/MvyBJiR.jpg" width="100"/>
 
 * get_valid_moves() -> This method checks the 4 directions/locations around a Ghost and if they are inbounds and not of Type.WALL it is a valid move and added to the returned list. 
   - This test places two Ghost on the frame. It then calls the get_valid_moves function and compares its elements to the expected values based on the respective Ghost's locations.
@@ -44,7 +44,7 @@ java -cp "src/" StartMenu
 * attack() ->
   - *enter test info here*
 
-## Map Class Functions
+## Map Class Functions <img src="https://i.imgur.com/Sn6cAs7.png" width="45"/>
 
 * move(String name, Location loc, Type type) ->
   - *enter test info here*
