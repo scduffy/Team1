@@ -2,12 +2,12 @@
 
 ## By: Michael Orlando, Anthony Liu, Elizabeth Bernhardt, Samikshya Sapkota
 
->>>>An image of your code playing PacMan
->>>>A section on how to run the code from the command line
->>>>include a code block
 ## Gameplay
-
-![alt text](https://i.imgur.com/i64u0yZ.png) ![alt text](https://i.imgur.com/KCrZiJH.png)
+<p float="left">
+  <img src="https://i.imgur.com/i64u0yZ.png" width="322" />
+  <img src="https://i.imgur.com/KCrZiJH.png" width="300" /> 
+  <img src="https://i.imgur.com/xzwF7bB.png" width="300" />
+</p>
 
 ## How to run this from the command line
 
@@ -17,7 +17,6 @@ Make sure to run these commands from inside the P1 directory
 javac -cp "src/" src/*.java
 java -cp "src/" StartMenu
 ```
-
 >>>>A list of the functions you wrote with
 >>>>a description of the implementation for each function
 >>>>a description of the test you wrote
@@ -58,7 +57,6 @@ java -cp "src/" StartMenu
 
 
 >>>>Feel free to be creative and add any other elements. For example, you could
-
 >>>>add a video of your code playing PacMan instead of an image
 >>>>add small code blocks that supplement your descriptions
 >>>>add a table of contents for your readme
