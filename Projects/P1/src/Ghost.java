@@ -13,18 +13,45 @@ public class Ghost{
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		return null;
+		ArrayList<Location> valid_moves = new ArrayList<Location>();
+		Location[] moves = {myLoc.shift(0, 1), myLoc.shift(0, -1), myLoc.shift(1, 0), myLoc.shift(-1, 0)};
+
+		for (Location l : moves) {
+			if (myMap.getLoc(l) != null && !myMap.getLoc(l).isEmpty() && !myMap.getLoc(l).contains(Map.Type.WALL)) {
+				valid_moves.add(l);
+			}
+		}
+		return valid_moves;
 	}
 
 	public boolean move() {
 		return false;
 	}
 
-	public boolean is_pacman_in_range() { 
+	public boolean is_pacman_in_range() {
+		ArrayList<Location> movesAvailable = get_valid_moves();
+		movesAvailable.add(myLoc);
+		
+		for (Location l : movesAvailable) {
+			if (myMap.getLoc(l).contains(Map.Type.PACMAN))
+				return true;
+		}
 		return false;
 	}
 
 	public boolean attack() {
+		if (is_pacman_in_range()) {
+			ArrayList<Location> valid_moves = get_valid_moves();
+			for(Location move : valid_moves) {
+				if(myMap.getLoc(move).contains(Map.Type.PACMAN)) {
+					boolean attacked = myMap.attack(this.myName);
+					if(attacked) {
+						myLoc = move;
+					}
+					return attacked;
+				}
+			}
+		}
 		return false;
 	}
 }
