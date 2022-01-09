@@ -9,6 +9,6 @@ public class TestConsume extends TestCase {
                 
                 PacMan pacman = frame.addPacMan(new Location(1, 1));
                 assertTrue(pacman.consume() != null);
-                assertFalse(pacman.consume() == null); // Cookie already consumed
+                assertTrue(pacman.consume() == null); // Cookie already consumed
 	}
 }
