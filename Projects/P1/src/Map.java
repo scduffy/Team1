@@ -55,6 +55,16 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
+		if(!locations.containsKey(name)) {
+			return false;
+		}
+		if(type == Type.PACMAN || type == Type.GHOST) {
+			if(getLoc(loc).contains(Type.WALL)) {
+				return false;
+			}
+			locations.put(name, loc);
+			return true;
+		}
 		return false;
 	}
 	
