@@ -55,22 +55,58 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
+		if(!locations.containsKey(name)) {
+			return false;
+		}
+		if(type == Type.PACMAN || type == Type.GHOST) {
+			if(getLoc(loc).contains(Type.WALL)) {
+				return false;
+			}
+			locations.put(name, loc);
+			return true;
+		}
 		return false;
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		return null;
+		return field.get(loc);
 	}
 
 	public boolean attack(String Name) {
-		//update gameOver
+		if (isGameOver()) {
+			return gameOver;
+		}
+
+		Location ghostLocation = locations.get(Name);
+
+		if (ghostLocation != null) {
+			Location[] moves = { ghostLocation.shift(0, 1), ghostLocation.shift(0, -1), ghostLocation.shift(1, 0),
+					ghostLocation.shift(-1, 0) };
+			for (Location l : moves) {
+				if (field.get(l) != null && field.get(l).contains(Map.Type.PACMAN)) {
+					gameOver = true;
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 	
 	public JComponent eatCookie(String name) {
 		//update locations, components, field, and cookies
 		//the id for a cookie at (10, 1) is tok_x10_y1
+		Location loc = locations.get(name);
+		String cookie = "tok_x" + loc.x + "_y" + loc.y;
+		
+		if (locations.get(cookie) != null) {
+			locations.remove(cookie);
+			cookies++;
+			field.get(loc).remove(Type.COOKIE);
+			JComponent c = components.get(cookie);
+			components.remove(cookie);
+			return c;
+		}
 		return null;
 	}
 }
