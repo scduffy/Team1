@@ -5,6 +5,10 @@ import java.io.*;
 public class TestConsume extends TestCase {
 
 	public void testConsume() throws FileNotFoundException {
-		return null;	
+		MainFrame frame = new MainFrame();
+                
+                PacMan pacman = frame.addPacMan(new Location(1, 1));
+                assertTrue(pacman.consume() != null);
+                assertFalse(pacman.consume() == null); // Cookie already consumed
 	}
 }
