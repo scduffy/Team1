@@ -56,7 +56,6 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
-<<<<<<< HEAD
 		if (!locations.containsKey(name) || !components.containsKey(name) || !field.containsKey(loc)) {
       		return false;
   		}
@@ -66,19 +65,6 @@ public class Map{
     	field.get(loc).add(type);
 
 		return true;
-=======
-		if(!locations.containsKey(name)) {
-			return false;
-		}
-		if(type == Type.PACMAN || type == Type.GHOST) {
-			if(getLoc(loc).contains(Type.WALL)) {
-				return false;
-			}
-			locations.put(name, loc);
-			return true;
-		}
-		return false;
->>>>>>> 167da329eb3ca1736716e3fe961b903bb0f31772
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
