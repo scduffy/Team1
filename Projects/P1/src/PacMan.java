@@ -51,6 +51,12 @@ public class PacMan{
 	}
 
 	public boolean is_ghost_in_range() { 
+		ArrayList<Location> valid_moves = get_valid_moves();
+		for(Location move : valid_moves) {
+			if(myMap.getLoc(move).contains(Map.Type.Ghost)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
