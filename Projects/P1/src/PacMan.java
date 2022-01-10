@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Random;
 import java.util.ArrayList;
 import javax.swing.JComponent;
 
@@ -15,18 +16,51 @@ public class PacMan{
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		return null;	
+		ArrayList<Location> valid_moves = new ArrayList<Location>();
+		Location[] moves = { myLoc.shift(0, 1), myLoc.shift(0, -1), myLoc.shift(1, 0), myLoc.shift(-1, 0) };
+
+		for (Location l : moves) {
+			if (myMap.getLoc(l) != null && !myMap.getLoc(l).isEmpty() && !myMap.getLoc(l).contains(Map.Type.WALL)) {
+				valid_moves.add(l);
+			}
+		}
+		return valid_moves;
 	}
 
 	public boolean move() {
-		return false;
+		ArrayList<Location> moves = get_valid_moves();
+
+		if (moves.isEmpty()){
+			return false;
+		}
+		
+		for(Location l: moves){
+			if (myMap.getLoc(l).contains(Map.Type.COOKIE)){
+				myLoc = l;
+				myMap.move(myName,l,Map.Type.PACMAN);
+				return true;
+			}
+		}
+
+		Random random = new Random();
+		int move = random.nextInt(moves.size());
+		myLoc = moves.get(move);
+		myMap.move(myName,moves.get(move),Map.Type.PACMAN);
+
+		return true;
 	}
 
 	public boolean is_ghost_in_range() { 
+		ArrayList<Location> valid_moves = get_valid_moves();
+		for(Location move : valid_moves) {
+			if(myMap.getLoc(move).contains(Map.Type.Ghost)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
 	public JComponent consume() { 
- 		return null;
+ 		return (myMap.getLoc(myLoc).contains(Map.Type.COOKIE) ? myMap.eatCookie(myName) : null);
 	}
 }
