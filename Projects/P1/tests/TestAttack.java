@@ -12,8 +12,7 @@ public class TestAttack extends TestCase {
 
 		PacMan pacman = frame.addPacMan(new Location(6, 9));
 		assertTrue(ghost1.attack() == false);
-
-		assertTrue(ghost2.attack());	
-	}
+		assertTrue(ghost2.attack());
+	}	
 
 }
