@@ -56,6 +56,7 @@ public class Ghost{
 		if(myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.GHOST)) {
 			return true;
 		}
+
 		return false;
 	}	
 
