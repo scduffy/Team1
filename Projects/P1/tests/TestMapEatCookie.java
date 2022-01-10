@@ -2,8 +2,9 @@ import junit.framework.*;
 import java.awt.Color;
 import java.io.*;
 
-public class TestMapEatCookie extends TestCase {
+public class TestMapEatCookie {
 	
+
 	public void testMapEatCookie() throws FileNotFoundException{
 		MainFrame frame = new MainFrame();
 		Map map = frame.getMap();
@@ -15,5 +16,6 @@ public class TestMapEatCookie extends TestCase {
 		assertTrue(map.getCookies() == 1);
 		assertTrue(map.eatCookie("pacman") == null); // Cookie at (1,1) already eaten
 		assertTrue(map.getCookies() == 1); // No cookie consumed by second call to eatCookie
+
 	}
 }
