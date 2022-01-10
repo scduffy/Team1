@@ -1,5 +1,4 @@
 import java.util.HashSet;
-import java.util.Random;
 import java.util.ArrayList;
 import javax.swing.JComponent;
 
@@ -28,26 +27,7 @@ public class PacMan{
 	}
 
 	public boolean move() {
-		ArrayList<Location> moves = get_valid_moves();
-
-		if (moves.isEmpty()){
-			return false;
-		}
-		
-		for(Location l: moves){
-			if (myMap.getLoc(l).contains(Map.Type.COOKIE)){
-				myLoc = l;
-				myMap.move(myName,l,Map.Type.PACMAN);
-				return true;
-			}
-		}
-
-		Random random = new Random();
-		int move = random.nextInt(moves.size());
-		myLoc = moves.get(move);
-		myMap.move(myName,moves.get(move),Map.Type.PACMAN);
-
-		return true;
+		return false;
 	}
 
 	public boolean is_ghost_in_range() { 
