@@ -11,7 +11,7 @@ public class TestGhostMove extends TestCase {
 		//Creating Players
 		Ghost ghost = frame.addGhost(new Location(2, 1), "stinky", Color.red);
 		assertTrue(ghost.move());
-		ghost = frame.addPacMan(new Location(0, 0));
+		ghost = frame.addGhost(new Location(0, 0), "ghost", Color.blue);
 		assertFalse(ghost.move());
 	}
 }

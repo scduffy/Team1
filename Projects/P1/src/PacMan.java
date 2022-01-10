@@ -20,7 +20,7 @@ public class PacMan{
 		Location[] moves = { myLoc.shift(0, 1), myLoc.shift(0, -1), myLoc.shift(1, 0), myLoc.shift(-1, 0) };
 
 		for (Location l : moves) {
-			if (myMap.getLoc(l) != null && !myMap.getLoc(l).isEmpty() && !myMap.getLoc(l).contains(Map.Type.WALL)) {
+			if (myMap.getLoc(l) != null && !myMap.getLoc(l).contains(Map.Type.WALL)) {
 				valid_moves.add(l);
 			}
 		}
@@ -53,7 +53,7 @@ public class PacMan{
 	public boolean is_ghost_in_range() { 
 		ArrayList<Location> valid_moves = get_valid_moves();
 		for(Location move : valid_moves) {
-			if(myMap.getLoc(move).contains(Map.Type.Ghost)) {
+			if(myMap.getLoc(move).contains(Map.Type.GHOST)) {
 				return true;
 			}
 		}

@@ -18,7 +18,7 @@ public class Ghost{
 		Location[] moves = {myLoc.shift(0, 1), myLoc.shift(0, -1), myLoc.shift(1, 0), myLoc.shift(-1, 0)};
 
 		for (Location l : moves) {
-			if (myMap.getLoc(l) != null && !myMap.getLoc(l).isEmpty() && !myMap.getLoc(l).contains(Map.Type.WALL)) {
+			if (myMap.getLoc(l) != null && !myMap.getLoc(l).contains(Map.Type.WALL)) {
 				valid_moves.add(l);
 			}
 		}
@@ -51,24 +51,17 @@ public class Ghost{
 	}
 
 	public boolean attack() {
-	// center check
-	if(myMap.getLoc(myLoc).contains(Map.Type.GHOST)) {			return true;
-		}
-		// West check
-		if(myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.GHOST)) {
-			return true;
-		}
-		// East check
-		if(myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.GHOST)) {
-			return true;
-		}
-		// North check
-		if(myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.GHOST)) {
-			return true;
-		}
-		// South check
-		if(myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.GHOST)) {
-			return true;
+		boolean can_attack = is_pacman_in_range();
+
+		if (can_attack) {
+			ArrayList<Location> moves = get_valid_moves();
+
+			for (Location l : moves) {
+				if (myMap.getLoc(l) != null && myMap.getLoc(l).contains(Map.Type.PACMAN)) {
+					myMap.attack(myName);
+					return true;
+				}
+			}
 		}
 
 		return false;
