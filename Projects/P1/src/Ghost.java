@@ -51,8 +51,9 @@ public class Ghost{
 	}
 
 	public boolean attack() {
-	// center check
-	if(myMap.getLoc(myLoc).contains(Map.Type.GHOST)) {			return true;
+		// center check
+		if(myMap.getLoc(myLoc).contains(Map.Type.GHOST)) {			
+			return true;
 		}
 		// West check
 		if(myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.GHOST)) {
