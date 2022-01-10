@@ -1,5 +1,5 @@
 # Team1
-# Project 1: Autonomous PacManz
+# Project 1: Autonomous PacMan
 
 ## By: Michael Orlando, Anthony Liu, Elizabeth Bernhardt, Samikshya Sapkota
 
