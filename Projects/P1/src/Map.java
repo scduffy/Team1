@@ -11,6 +11,7 @@ public class Map{
 		WALL,
 		COOKIE		
 	}
+
 	
 	private HashMap<Location, HashSet<Type>> field;
 	private boolean gameOver;
