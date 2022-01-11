@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Random;
 import java.util.ArrayList;
 
 public class Ghost{
@@ -13,18 +14,56 @@ public class Ghost{
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		return null;
+		ArrayList<Location> valid_moves = new ArrayList<Location>();
+		Location[] moves = {myLoc.shift(0, 1), myLoc.shift(0, -1), myLoc.shift(1, 0), myLoc.shift(-1, 0)};
+
+		for (Location l : moves) {
+			if (myMap.getLoc(l) != null && !myMap.getLoc(l).contains(Map.Type.WALL)) {
+				valid_moves.add(l);
+			}
+		}
+		return valid_moves;
 	}
 
 	public boolean move() {
-		return false;
+		ArrayList<Location> moves = get_valid_moves();
+    
+		if (moves.isEmpty()){
+			return false;
+		}
+
+		Random random = new Random();
+		int move = random.nextInt(moves.size());
+		myLoc = moves.get(move);
+		myMap.move(myName,moves.get(move),Map.Type.GHOST);
+		return true;
 	}
 
-	public boolean is_pacman_in_range() { 
+	public boolean is_pacman_in_range() {
+		ArrayList<Location> movesAvailable = get_valid_moves();
+		movesAvailable.add(myLoc);
+		
+		for (Location l : movesAvailable) {
+			if (myMap.getLoc(l).contains(Map.Type.PACMAN))
+				return true;
+		}
 		return false;
 	}
 
 	public boolean attack() {
+		boolean can_attack = is_pacman_in_range();
+
+		if (can_attack) {
+			ArrayList<Location> moves = get_valid_moves();
+
+			for (Location l : moves) {
+				if (myMap.getLoc(l) != null && myMap.getLoc(l).contains(Map.Type.PACMAN)) {
+					myMap.attack(myName);
+					return true;
+				}
+			}
+		}
+
 		return false;
-	}
+	}	
 }
