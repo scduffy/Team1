@@ -54,10 +54,10 @@ public class PacMan{
 		ArrayList<Location> valid_moves = get_valid_moves();
 		for(Location move : valid_moves) {
 			if(myMap.getLoc(move).contains(Map.Type.GHOST)) {
-				return true;
+				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 
 	public JComponent consume() { 
