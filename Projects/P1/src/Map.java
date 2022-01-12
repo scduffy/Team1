@@ -85,12 +85,12 @@ public class Map{
 					ghostLocation.shift(-1, 0) };
 			for (Location l : moves) {
 				if (field.get(l) != null && field.get(l).contains(Map.Type.PACMAN)) {
-					gameOver = true;
-					return true;
+					gameOver = false;
+					return false;
 				}
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	public JComponent eatCookie(String name) {
