@@ -6,7 +6,7 @@ public class TestGhostMove extends TestCase {
 
 	public void testGhostMove() throws FileNotFoundException{
 		//Creating A Map
-		MainFrame frame = new MainFrame(); //Creates A New Map With Walls and Tokens Initialized
+		NoFrame frame = new NoFrame(); 
 
 		//Creating Players
 		Ghost ghost = frame.addGhost(new Location(2, 1), "stinky", Color.red);
