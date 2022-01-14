@@ -5,7 +5,7 @@ import junit.framework.*;
 public class TestMapAttack extends TestCase {
 
 	public void testMapAttack() throws FileNotFoundException {
-		MainFrame frame = new MainFrame();
+		NoFrame frame = new NoFrame();
 
 		PacMan pacman1 = frame.addPacMan(new Location(2, 1));
 		Ghost ghost1 = frame.addGhost(new Location(5, 10), "ghost1", Color.red);
