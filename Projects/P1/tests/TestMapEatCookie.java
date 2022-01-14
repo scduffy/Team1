@@ -5,7 +5,7 @@ import java.io.*;
 public class TestMapEatCookie extends TestCase {
 	
 	public void testMapEatCookie() throws FileNotFoundException{
-		MainFrame frame = new MainFrame();
+		NoFrame frame = new NoFrame();
 		Map map = frame.getMap();
 
 		PacMan pacman = frame.addPacMan(new Location(1, 1));
