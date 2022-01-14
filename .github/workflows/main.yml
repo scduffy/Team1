@@ -25,4 +25,4 @@ jobs:
       - name: Test Ghost get_valid_moves
         run: |
           javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
-          java -D java.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestGhostValidMoves
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestGhostValidMoves
