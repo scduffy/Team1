@@ -24,7 +24,7 @@ public class TestGhostInRange extends TestCase {
 	}
 
 	public void testGhostInRangeFALSE() throws FileNotFoundException{
-		MainFrame frame1 = new MainFrame();
+		NoFrame frame1 = new NoFrame();
 
 		Ghost ghost_1 = frame1.addGhost(new Location(1, 1), "ghost_1", Color.red);
 		Ghost ghost_2 = frame1.addGhost(new Location(5, 9), "ghost_2", Color.blue);
