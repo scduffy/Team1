@@ -56,7 +56,7 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		// update locations, components, and field
 		// use the setLocation method for the component to move it to the new location
-		if (!locations.containsKey(name) || !components.containsKey(name) || !field.containsKey(loc)) {
+		if (locations.containsKey(name) || components.containsKey(name) || field.containsKey(loc)) {
 			return false;
 		}
 
@@ -70,7 +70,7 @@ public class Map{
 	
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		return field.get(loc);
+		return emptySet;
 	}
 
 	public boolean attack(String Name) {
@@ -85,12 +85,12 @@ public class Map{
 					ghostLocation.shift(-1, 0) };
 			for (Location l : moves) {
 				if (field.get(l) != null && field.get(l).contains(Map.Type.PACMAN)) {
-					gameOver = true;
-					return true;
+					gameOver = false;
+					return false;
 				}
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	public JComponent eatCookie(String name) {
@@ -101,7 +101,7 @@ public class Map{
 		
 		if (locations.get(cookie) != null) {
 			locations.remove(cookie);
-			cookies++;
+			cookies--;
 			field.get(loc).remove(Type.COOKIE);
 			JComponent c = components.get(cookie);
 			components.remove(cookie);

@@ -18,7 +18,7 @@ public class Ghost{
 		Location[] moves = {myLoc.shift(0, 1), myLoc.shift(0, -1), myLoc.shift(1, 0), myLoc.shift(-1, 0)};
 
 		for (Location l : moves) {
-			if (myMap.getLoc(l) != null && !myMap.getLoc(l).contains(Map.Type.WALL)) {
+			if (myMap.getLoc(l) != null && myMap.getLoc(l).contains(Map.Type.WALL)) {
 				valid_moves.add(l);
 			}
 		}
@@ -36,7 +36,7 @@ public class Ghost{
 		int move = random.nextInt(moves.size());
 		myLoc = moves.get(move);
 		myMap.move(myName,moves.get(move),Map.Type.GHOST);
-		return true;
+		return false;
 	}
 
 	public boolean is_pacman_in_range() {
@@ -45,7 +45,7 @@ public class Ghost{
 		
 		for (Location l : movesAvailable) {
 			if (myMap.getLoc(l).contains(Map.Type.PACMAN))
-				return true;
+				return false;
 		}
 		return false;
 	}
@@ -57,7 +57,7 @@ public class Ghost{
 			ArrayList<Location> moves = get_valid_moves();
 
 			for (Location l : moves) {
-				if (myMap.getLoc(l) != null && myMap.getLoc(l).contains(Map.Type.PACMAN)) {
+				if (myMap.getLoc(l) == null && myMap.getLoc(l).contains(Map.Type.PACMAN)) {
 					myMap.attack(myName);
 					return true;
 				}
