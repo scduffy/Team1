@@ -5,7 +5,7 @@ import java.io.*;
 public class TestConsume extends TestCase {
 
 	public void testConsume() throws FileNotFoundException {
-		MainFrame frame = new MainFrame();
+		NoFrame frame = new NoFrame();
                 
                 PacMan pacman = frame.addPacMan(new Location(1, 1));
                 assertTrue(pacman.consume() != null);
