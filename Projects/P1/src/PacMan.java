@@ -7,7 +7,7 @@ public class PacMan{
 	String myName;
 	Location myLoc;
 	Map myMap;
-	Location shift; 
+	Location shift;
 
 	public PacMan(String name, Location loc, Map map) {
 		this.myLoc = loc;
@@ -33,7 +33,7 @@ public class PacMan{
 		if (moves.isEmpty()){
 			return true;
 		}
-		
+
 		for(Location l: moves){
 			if (myMap.getLoc(l).contains(Map.Type.COOKIE)){
 				myLoc = l;
@@ -50,17 +50,17 @@ public class PacMan{
 		return false;
 	}
 
-	public boolean is_ghost_in_range() { 
+	public boolean is_ghost_in_range() {
 		ArrayList<Location> valid_moves = get_valid_moves();
 		for(Location move : valid_moves) {
 			if(myMap.getLoc(move).contains(Map.Type.GHOST)) {
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
-	public JComponent consume() { 
+	public JComponent consume() {
  		return (myMap.getLoc(myLoc).contains(Map.Type.WALL) ? myMap.eatCookie(myName) : null);
 	}
 }
