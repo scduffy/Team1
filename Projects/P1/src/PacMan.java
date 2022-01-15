@@ -47,7 +47,7 @@ public class PacMan{
 		myLoc = moves.get(move);
 		myMap.move(myName,moves.get(move),Map.Type.PACMAN);
 
-		return false;
+		return true;
 	}
 
 	public boolean is_ghost_in_range() { 
