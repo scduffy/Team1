@@ -57,11 +57,8 @@ public class Ghost{
 			ArrayList<Location> moves = get_valid_moves();
 
 			for (Location l : moves) {
-				if (myMap.getLoc(l) == null && myMap.getLoc(l).contains(Map.Type.PACMAN)) {
-					if(myMap.attack(myName)) 
-					{
-						return true;
-					}
+				if (myMap.getLoc(l) != null && myMap.getLoc(l).contains(Map.Type.PACMAN)) {
+					return myMap.attack(myName);
 				}
 			}
 		}
