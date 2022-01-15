@@ -27,7 +27,7 @@ public class Ghost{
 
 	public boolean move() {
 		ArrayList<Location> moves = get_valid_moves();
-    
+
 		if (moves.isEmpty()){
 			return false;
 		}
@@ -42,7 +42,7 @@ public class Ghost{
 	public boolean is_pacman_in_range() {
 		ArrayList<Location> movesAvailable = get_valid_moves();
 		movesAvailable.add(myLoc);
-		
+
 		for (Location l : movesAvailable) {
 			if (myMap.getLoc(l).contains(Map.Type.PACMAN))
 				return false;
@@ -57,7 +57,7 @@ public class Ghost{
 			ArrayList<Location> moves = get_valid_moves();
 
 			for (Location l : moves) {
-				if (myMap.getLoc(l) == null && myMap.getLoc(l).contains(Map.Type.PACMAN)) {
+				if (myMap.getLoc(l) != null && myMap.getLoc(l).contains(Map.Type.PACMAN)) {
 					myMap.attack(myName);
 					return true;
 				}
@@ -65,5 +65,5 @@ public class Ghost{
 		}
 
 		return false;
-	}	
+	}
 }
