@@ -31,14 +31,14 @@ public class PacMan{
 		ArrayList<Location> moves = get_valid_moves();
 
 		if (moves.isEmpty()){
-			return true;
+			return false;
 		}
 		
 		for(Location l: moves){
 			if (myMap.getLoc(l).contains(Map.Type.COOKIE)){
 				myLoc = l;
 				myMap.move(myName,l,Map.Type.PACMAN);
-				return false;
+				return true;
 			}
 		}
 
@@ -47,7 +47,7 @@ public class PacMan{
 		myLoc = moves.get(move);
 		myMap.move(myName,moves.get(move),Map.Type.PACMAN);
 
-		return false;
+		return true;
 	}
 
 	public boolean is_ghost_in_range() { 
