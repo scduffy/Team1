@@ -18,7 +18,7 @@ public class Ghost{
 		Location[] moves = {myLoc.shift(0, 1), myLoc.shift(0, -1), myLoc.shift(1, 0), myLoc.shift(-1, 0)};
 
 		for (Location l : moves) {
-			if (myMap.getLoc(l) != null && myMap.getLoc(l).contains(Map.Type.WALL)) {
+			if (myMap.getLoc(l) != null && !myMap.getLoc(l).contains(Map.Type.WALL)) {
 				valid_moves.add(l);
 			}
 		}
