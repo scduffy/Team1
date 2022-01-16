@@ -45,7 +45,7 @@ public class Ghost{
 		
 		for (Location l : movesAvailable) {
 			if (myMap.getLoc(l).contains(Map.Type.PACMAN))
-				return false;
+				return true;
 		}
 		return false;
 	}
