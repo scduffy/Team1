@@ -101,7 +101,7 @@ public class Map{
 		
 		if (locations.get(cookie) != null) {
 			locations.remove(cookie);
-			cookies--;
+			cookies++;
 			field.get(loc).remove(Type.COOKIE);
 			JComponent c = components.get(cookie);
 			components.remove(cookie);
