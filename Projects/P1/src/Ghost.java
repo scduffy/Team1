@@ -52,14 +52,17 @@ public class Ghost{
 
 	public boolean attack() {
 		boolean can_attack = is_pacman_in_range();
+		if (can_attack) {
+			ArrayList<Location> moves = get_valid_moves();
 
-		ArrayList<Location> moves = get_valid_moves();
+			for (Location l : moves) {
+				if (myMap.getLoc(l) != null && myMap.getLoc(l).contains(Map.Type.PACMAN)) {
+					myMap.attack(myName);
+					return true;
+				}
 
-		for (Location l : moves) {
-			if (myMap.getLoc(l).contains(Map.Type.PACMAN)) {
-				return myMap.attack(myName);
-				
 			}
+
 		}
 
 		return false;
