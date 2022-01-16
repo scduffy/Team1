@@ -57,8 +57,8 @@ public class Ghost{
 
 			for (Location l : moves) {
 				if (myMap.getLoc(l) != null && myMap.getLoc(l).contains(Map.Type.PACMAN)) {
-					myMap.attack(myName);
-					return true;
+					return myMap.attack(myName);
+					//return true;
 				}
 
 			}
