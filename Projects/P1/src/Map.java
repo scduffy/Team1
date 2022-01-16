@@ -70,7 +70,7 @@ public class Map{
 
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		return emptySet;
+		return field.get(loc);
 	}
 
 	public boolean attack(String Name) {
@@ -101,7 +101,7 @@ public class Map{
 
 		if (locations.get(cookie) != null) {
 			locations.remove(cookie);
-			cookies--;
+			cookies++;
 			field.get(loc).remove(Type.COOKIE);
 			JComponent c = components.get(cookie);
 			components.remove(cookie);
